@@ -1,10 +1,10 @@
 import "./App.css";
-import LoginPage from "./components/Login.jsx";
+import Routing from "./Routing/Routing.jsx";
 
 function App() {
   return (
     <>
-      <LoginPage />
+      <Routing />
     </>
   );
 }

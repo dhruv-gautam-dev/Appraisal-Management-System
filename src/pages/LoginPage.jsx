@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthContext.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -22,6 +22,7 @@ const LoginPage = () => {
         "http://localhost:5000/api/auth/login",
         form
       );
+      console.log(res);
       login(res.data.token);
 
       const role = res.data.role;
