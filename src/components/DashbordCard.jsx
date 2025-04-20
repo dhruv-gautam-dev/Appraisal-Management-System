@@ -1,4 +1,4 @@
-const DashboardCard = ({ title, onClick, role }) => (
+const DashboardCard = ({ title, onClick, role,employeeId  }) => (
   <div
     onClick={onClick}
     className="p-6 transition rounded-lg shadow cursor-pointer hover:shadow-md"

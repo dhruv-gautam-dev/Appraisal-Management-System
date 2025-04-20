@@ -6,17 +6,16 @@ import DashboardCard from "../components/DashbordCard.jsx";
 const Dashboard = () => {
   const { auth, logout } = useContext(AuthContext);
   const { user } = auth;
+  console.log("user inside dashboard", user.id);
+  console.log("user role inside dashboard", user.role);
   const navigate = useNavigate();
+  const role = user?.role;
+  console.log("User object:", user); // gives undefined  on console
 
   const handleLogout = () => {
     logout();
     navigate("/");
   };
-
-  const role = user?.role;
-  console.log("User object:", user); // gives undefined  on console
-  console.log("User role:", user?.role); // gives undefined on console
-  console.log("User role:", role); /// outpur is undefined on console
 
   return (
     <div className="min-h-screen p-6 bg-gray-50">
@@ -39,9 +38,10 @@ const Dashboard = () => {
               role={role}
             />
             <DashboardCard
-              title="View My Appraisals"
+              title="View Appraisals"
               onClick={() => navigate("/my-appraisals")}
               role={role}
+              employeeId={user.id}
             />
           </div>
         )}

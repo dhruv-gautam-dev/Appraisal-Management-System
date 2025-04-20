@@ -14,6 +14,7 @@ const AppraisalForm = () => {
 
   const [message, setMessage] = useState("");
   const { auth } = useContext(AuthContext);
+  console.log("Auth context in AppraisalForm:", auth); // Check the auth context
   const token = auth.token;
 
   const navigate = useNavigate();

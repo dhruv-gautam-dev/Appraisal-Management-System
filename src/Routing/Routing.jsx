@@ -4,6 +4,8 @@ import RegisterPage from "../pages/RegisterPage.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import AppraisalForm from "../pages/AppraisalForm.jsx";
+import ApprovalView from "../pages/ApprovalView.jsx";
+import MyAppraisals from "../pages/MyAppraisal.jsx";
 
 function Routing() {
   return (
@@ -23,6 +25,23 @@ function Routing() {
         element={
           <ProtectedRoute allowedRoles={["Employee"]}>
             <AppraisalForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/my-appraisals" element={<MyAppraisals />} />
+      <Route
+        path="/manager"
+        element={
+          <ProtectedRoute allowedRoles={["Manager"]}>
+            <ApprovalView />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/supervisor"
+        element={
+          <ProtectedRoute allowedRoles={["Supervisor"]}>
+            <ApprovalView />
           </ProtectedRoute>
         }
       />
