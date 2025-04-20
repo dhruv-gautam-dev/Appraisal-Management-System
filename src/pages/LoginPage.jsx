@@ -22,7 +22,6 @@ const LoginPage = () => {
         "http://localhost:5000/api/auth/login",
         form
       );
-      console.log(res);
       login(res.data.token);
 
       const role = res.data.role;
