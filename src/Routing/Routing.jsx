@@ -3,6 +3,7 @@ import LoginPage from "../pages/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
+import AppraisalForm from "../pages/AppraisalForm.jsx";
 
 function Routing() {
   return (
@@ -14,6 +15,14 @@ function Routing() {
         element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/appraisals"
+        element={
+          <ProtectedRoute allowedRoles={["Employee"]}>
+            <AppraisalForm />
           </ProtectedRoute>
         }
       />

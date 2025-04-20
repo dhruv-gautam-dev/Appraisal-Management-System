@@ -35,7 +35,7 @@ const Dashboard = () => {
           <div>
             <DashboardCard
               title="Create Appraisal"
-              onClick={() => navigate("/appraisal")}
+              onClick={() => navigate("/appraisals")}
               role={role}
             />
             <DashboardCard
