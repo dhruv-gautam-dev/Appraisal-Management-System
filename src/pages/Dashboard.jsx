@@ -69,7 +69,7 @@ const Dashboard = () => {
           />
         )}
 
-        {(role === "Peer" || role === "Junior") && (
+        {role === "Junior" && (
           <DashboardCard
             title="Submit Feedback"
             onClick={() => navigate("/feedback")}

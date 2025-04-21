@@ -6,6 +6,7 @@ import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import AppraisalForm from "../pages/AppraisalForm.jsx";
 import ApprovalView from "../pages/ApprovalView.jsx";
 import MyAppraisals from "../pages/MyAppraisal.jsx";
+import FeedbackForm from "../pages/FeedbackForm.jsx";
 
 function Routing() {
   return (
@@ -42,6 +43,15 @@ function Routing() {
         element={
           <ProtectedRoute allowedRoles={["Supervisor"]}>
             <ApprovalView />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/feedback"
+        element={
+          <ProtectedRoute allowedRoles={["Peer", "Junior"]}>
+            <FeedbackForm />
           </ProtectedRoute>
         }
       />
