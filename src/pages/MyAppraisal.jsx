@@ -56,7 +56,7 @@ const MyAppraisals = ({ employeeId: propEmployeeId }) => {
 
   return (
     <div className="p-6">
-      <h2 className="mb-4 text-2xl font-bold">My Appraisals</h2>
+      <h2 className="mb-4 text-2xl font-bold">Appraisals</h2>
       {appraisals.length === 0 ? (
         <p>No appraisals found.</p>
       ) : (
