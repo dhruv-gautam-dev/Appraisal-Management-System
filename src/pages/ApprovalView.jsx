@@ -66,27 +66,45 @@ const ApprovalView = () => {
     }
   };
 
-  const handleAction = async (id, action) => {
-    const urlMap = {
-      manager: `/api/appraisals/${id}/manager`,
-      supervisor: `/api/appraisals/${id}/supervisor`,
-      approve: `/api/appraisals/${id}/approve`,
-    };
-
+  const handleSupervisorReview = async (id) => {
     try {
+      console.log("Supervisor review initiated for ID:", id);
+      const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000${urlMap[action]}`,
+        `http://localhost:5000/api/appraisals/${id}/supervisor`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setMessage("Action successful");
+      setMessage("supervisor review successful");
       fetchAppraisals();
     } catch (err) {
-      setMessage("Action failed");
+      setMessage("supervisor review failed");
     }
   };
+
+  // const handleAction = async (id, action) => {
+  //   const urlMap = {
+  //     manager: `/api/appraisals/${id}/manager`,
+  //     supervisor: `/api/appraisals/${id}/supervisor`,
+  //     approve: `/api/appraisals/${id}/approve`,
+  //   };
+
+  //   try {
+  //     await axios.put(
+  //       `http://localhost:5000${urlMap[action]}`,
+  //       {},
+  //       {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       }
+  //     );
+  //     setMessage("Action successful");
+  //     fetchAppraisals();
+  //   } catch (err) {
+  //     setMessage("Action failed");
+  //   }
+  // };
 
   useEffect(() => {
     fetchAppraisals();
@@ -126,7 +144,7 @@ const ApprovalView = () => {
               {user.role === "Supervisor" && (
                 <button
                   className="px-3 py-1 text-white bg-blue-600 rounded"
-                  onClick={() => handleAction(appraisal._id, "supervisor")}
+                  onClick={() => handleSupervisorReview(appraisal._id)}
                 >
                   Request Feedback
                 </button>
