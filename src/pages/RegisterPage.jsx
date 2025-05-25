@@ -26,7 +26,7 @@ const RegisterPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${import.meta.env.VITE_API_BASE_URL}/api/auth/register`,
         form
       );
       login(res.data.token);

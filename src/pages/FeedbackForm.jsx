@@ -22,7 +22,9 @@ const FeedbackForm = () => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/appraisals/${appraisalId}/feedback`,
+        `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/appraisals/${appraisalId}/feedback`,
         form,
         {
           headers: {

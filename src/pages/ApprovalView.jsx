@@ -35,7 +35,7 @@ const ApprovalView = () => {
   const fetchAppraisals = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/appraisals/${id}`
+        `${import.meta.env.VITE_API_BASE_URL}/api/appraisals/${id}`
       );
       const data = response.data;
       console.log(data);
@@ -53,7 +53,7 @@ const ApprovalView = () => {
       console.log("Manager review initiated for ID:", id);
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/appraisals/${id}/manager`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/appraisals/${id}/manager`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -71,7 +71,7 @@ const ApprovalView = () => {
       console.log("Supervisor review initiated for ID:", id);
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/appraisals/${id}/supervisor`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/appraisals/${id}/supervisor`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },

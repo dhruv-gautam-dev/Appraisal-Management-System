@@ -26,7 +26,7 @@ const MyAppraisals = ({ employeeId: propEmployeeId }) => {
     const fetchAppraisals = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/appraisals/${employeeId}`
+          `${import.meta.env.VITE_API_BASE_URL}/api/appraisals/${employeeId}`
         );
         const data = response.data;
         console.log(data);

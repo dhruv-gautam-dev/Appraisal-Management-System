@@ -29,11 +29,15 @@ const AppraisalForm = () => {
     console.log(token);
 
     try {
-      await axios.post("http://localhost:5000/api/appraisals", form, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.post(
+        `${import.meta.env.VITE_API_BASE_URL}/api/appraisals`,
+        form,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setMessage("Appraisal submitted successfully!");
       setTimeout(() => navigate("/dashboard"), 1500);
